@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+$Pathogene/Lab42VimBaseTools/vimtest $@
