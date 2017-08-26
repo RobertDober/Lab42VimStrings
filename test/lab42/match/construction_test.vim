@@ -10,7 +10,7 @@ endfunction
 
 function! TestMatchWithSubmatches()
   "                             |....+....|
-  let l:match = lab42#match#new('alpha beta', 11, ['alpha', 11], ['beta', 17])
+  let l:match = lab42#match#new('alpha beta', 11, 'alpha', 11, 'beta', 17)
 
   call lab42#test#assert_eq('alpha beta', l:match.text())
   call lab42#test#assert_eq(11, l:match.start())

@@ -29,7 +29,7 @@ function! s:parse_up_to(charlist, pushers, poppers)
 endfunction
 
   
-function! lab42#parse#up_to(string, pushers, poppers)
+function! lab42#parse#up_to(string, pushers, poppers, ...)
   if type(a:pushers) == type([])
     let l:pushers = a:pushers
   else
@@ -41,5 +41,13 @@ function! lab42#parse#up_to(string, pushers, poppers)
     let l:poppers = split(a:poppers, '\zs')
   endif
   let [l:result, l:count] = s:parse_up_to(split(a:string, '\zs'), l:pushers, l:poppers)
-  return [l:count < 0, l:result]
+  if a:0
+    if l:count < 0
+      return lab42#match#new(l:result, a:1)
+    else
+      return lab42#match#nomatch(a:1)
+    endif
+  else
+    return [l:count < 0, l:result]
+  endif
 endfunction
