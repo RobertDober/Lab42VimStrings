@@ -1,6 +1,11 @@
 
 # v1.1 (Wendy)
 
+## v1.1.1
+
+* 2017-10-14  lab42#str#substring_fn
+* 2017-10-13  lab42#str#insert 
+
 ## 2017-08-24  v1.1.0 
 
 * 2017-08-27 lab42#parse#up_to 5 param form returns a match object, lab42#istr#replace_match

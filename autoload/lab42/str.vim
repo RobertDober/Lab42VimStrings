@@ -103,3 +103,41 @@ endfunction
 function! lab42#str#replace_part(str, replacement, from, to)
   return strpart(a:str, 0, a:from) . a:replacement . strpart(a:str, a:to)
 endfunction
+
+" Insertion {{{
+function! s:make_padding(len, chars) " {{{{{
+  let l:padding = repeat(a:chars, a:len)
+  return strpart(l:padding, 0, a:len)
+endfunction " }}}}}
+function! lab42#str#insert(str, ins, idx, ...) " {{{{{
+  let l:str = a:str
+  let l:len = len(l:str)
+  if a:idx > l:len
+    let l:padd = ' '
+    if a:0
+      let l:padd = a:1
+    endif
+    let l:str .= s:make_padding(a:idx - l:len, l:padd)
+  endif
+  return lab42#str#replace_part(l:str, a:ins, a:idx, a:idx)
+  " return strpart(a:str, 0, a:idx) . a:ins . 
+endfunction " }}}}}
+" }}}
+
+" HO Functions {{{
+function! s:substring(start, end, padding, str) " {{{{{
+  let l:length = a:end - a:start + 1
+  let l:result =  strpart(a:str, a:start - 1, l:length)
+  if len(l:result) < l:length
+    let l:result .= s:make_padding(l:length - len(l:result), a:padding)
+  endif
+  return l:result
+endfunction " }}}}}
+function! lab42#str#substring_fn(start, end, ...) " {{{{{
+  let l:padding = ' '
+  if a:0 > 0
+    let l:padding = a:1
+  endif
+  return function('s:substring', [a:start, a:end, l:padding])
+endfunction " }}}}}
+" }}}

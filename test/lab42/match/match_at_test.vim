@@ -11,7 +11,7 @@ function! TestMatchAt()
   let l:match = lab42#match#match_at('barbapapa', '(.)a', 5) 
   call lab42#test#assert_eq(['ba', 4, 'b', 4], l:match) 
 
-  "                              ....+....
+  "                                   ....+....
   let l:match = lab42#match#match_at('barbapapa', '(.)a', 5) 
   call lab42#test#assert_eq(['ba', 4, 'b', 4], l:match) 
 endfunction
