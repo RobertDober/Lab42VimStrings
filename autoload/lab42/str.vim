@@ -104,6 +104,18 @@ function! lab42#str#replace_part(str, replacement, from, to)
   return strpart(a:str, 0, a:from) . a:replacement . strpart(a:str, a:to)
 endfunction
 
+" Case Conversion {{{
+function! lab42#str#underscore(str) " {{{{{
+  " let l:str = substitute(a:str, '\v^((\l|\d)+)(\u)', '\1_\3', 'g')
+  let l:str = substitute(a:str, '\v(\u+)(\u\l)', '\1_\2', 'g')
+  let l:str = substitute(l:str,'\(\l\|\d\)\(\u\)','\1_\2','g')
+  return tolower(l:str)
+endfunction " }}}}}
+function! lab42#str#camelCase(str) " {{{{{
+  return a:str
+endfunction " }}}}}
+" }}}
+
 " Insertion {{{
 function! s:make_padding(len, chars) " {{{{{
   let l:padding = repeat(a:chars, a:len)
