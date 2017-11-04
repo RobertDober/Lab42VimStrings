@@ -3,6 +3,7 @@
 
 ## v1.1.1
 
+* 2017-11-04  lab42#str#align_line
 * 2017-10-14  lab42#str#substring_fn
 * 2017-10-13  lab42#str#insert 
 

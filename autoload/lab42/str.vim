@@ -104,6 +104,24 @@ function! lab42#str#replace_part(str, replacement, from, to)
   return strpart(a:str, 0, a:from) . a:replacement . strpart(a:str, a:to)
 endfunction
 
+" Alignment  {{{
+function! lab42#str#align_line(line, rgx, at_col) " {{{{{
+  let l:match_pos = match(a:line, a:rgx)
+  if l:match_pos < 0
+    return a:line
+  endif
+  if l:match_pos >= a:at_col - 1
+    return a:line
+  endif
+  "...... <at_col
+  "xxxx <match_pos
+  let l:col_match = '\v%\' . l:match_pos . 'v'
+  return substitute( a:line, l:col_match, repeat(' ', a:at_col - 1 - l:match_pos), '' )  
+  
+endfunction " }}}}}
+
+" }}}
+
 " Case Conversion {{{
 function! lab42#str#underscore(str) " {{{{{
   " let l:str = substitute(a:str, '\v^((\l|\d)+)(\u)', '\1_\3', 'g')
