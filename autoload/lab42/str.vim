@@ -1,4 +1,4 @@
-function! lab42#str#startsWith(str, start)
+function! lab42#str#startsWith(str, start) " {{{{{
   return match(a:str, '^' . a:start) == 0
 endfunction
 
@@ -9,6 +9,7 @@ function! lab42#str#assert_length(length, str)
     return a:str . repeat(' ', a:length - len(a:str))
 endfunction
 
+" }}}}}
 
 function! lab42#str#assure_suffix(str,suffix, ...)
   let l:rgx = a:suffix . '\s*'
