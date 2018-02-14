@@ -40,6 +40,8 @@ function! lab42#parse#up_to(string, pushers, poppers, ...)
   else
     let l:poppers = split(a:poppers, '\zs')
   endif
+  call lab42#test#dbg(l:pushers)
+  call lab42#test#dbg(l:poppers)
   let [l:result, l:count] = s:parse_up_to(split(a:string, '\zs'), l:pushers, l:poppers)
   if a:0
     if l:count < 0
