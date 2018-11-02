@@ -171,4 +171,13 @@ function! lab42#str#substring_fn(start, end, ...) " {{{{{
   endif
   return function('s:substring', [a:start, a:end, l:padding])
 endfunction " }}}}}
+
+" HO Functions {{{{
+function! lab42#str#prefix_with(prefix, str) " {{{{{
+  return a:prefix . a:str
+endfunction " }}}}}
+function! lab42#str#prefix_with_fn(prefix) " {{{{{
+  return function('lab42#str#prefix_with', [a:prefix])
+endfunction " }}}}}
+" }}}}
 " }}}

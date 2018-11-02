@@ -21,7 +21,7 @@ function! TestUnderscore() " {{{{{
   call lab42#test#assert_eq('a2_delta3_alpha', s:u('A2Delta3Alpha'))
 endfunction " }}}}}
 
-function! TestCamelCase() " {{{{{
-  call lab42#test#assert_eq('underscore', s:c('underscore'))
-  call lab42#test#assert_eq('helloWorld', s:c('hello_world'))
-endfunction " }}}}}
+" function! TestCamelCase() " {{{{{
+"   call lab42#test#assert_eq('underscore', s:c('underscore'))
+"   call lab42#test#assert_eq('helloWorld', s:c('hello_world'))
+" endfunction " }}}}}
